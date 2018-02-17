@@ -1,10 +1,15 @@
+#ifndef IDENTIFIERS_H_
+#define IDENTIFIERS_H_
+
+#include <stdint.h>
+
 // Identifiers will contain 7 message type bits followed by 4 board identifier bits
 
-static const uint16_t = BID_BMS_MASTER = 0x0000;
-static const uint16_t = BID_SHUTDOWN = 0x0001;
-static const uint16_t = BID_MOTOR_CONTROLLER = 0x0002;
-static const uint16_t = BID_IO = 0x0003;
-static const uint16_t = BID_CORE = 0x0004;
+static const uint16_t BID_BMS_MASTER = 0x0000;
+static const uint16_t BID_SHUTDOWN = 0x0001;
+static const uint16_t BID_MOTOR_CONTROLLER = 0x0002;
+static const uint16_t BID_IO = 0x0003;
+static const uint16_t BID_CORE = 0x0004;
 
 // Motor Controller Message Types
 /* FAULT_NR
@@ -93,3 +98,5 @@ static const uint16_t BATTERY_TEMPERATURE = 0x0034 << 4;
 static const uint16_t BATTERY_VOLTAGE = 0x0035 << 4;
 static const uint16_t BATTERY_CURRENT = 0x0036 << 4;
 static const uint16_t TORQUE_STATUS = 0x0037 << 4;
+
+#endif /* IDENTIFIERS_H_ */

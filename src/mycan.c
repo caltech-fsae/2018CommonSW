@@ -21,7 +21,7 @@ void Init_MyCAN()
 
 uint16_t create_ID(uint16_t board, uint16_t type)
 {
-	return (((uint16_t)board & 0b00011111) << 5) | ((uint16_t)type & 0b00011111);
+	return (((uint16_t)type & 0b0000011111110000) | ((uint16_t)board & 0b00001111));
 }
 
 bool CAN_can_transmit() {
