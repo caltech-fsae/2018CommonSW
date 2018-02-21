@@ -68,35 +68,35 @@ static const uint16_t BID_CORE = 0x0004;
 
 
 // Faults (0x0000 - 0x000A)
-static const uint16_t FAULT_NR = 0x0000 << 4;
-static const uint16_t FAULT = 0x0001 << 4;
-static const uint16_t HEARTBEAT = 0x0002 << 4;
+static const uint16_t MID_FAULT_NR = 0x0000 << 4;
+static const uint16_t MID_FAULT = 0x0001 << 4;
+static const uint16_t MID_HEARTBEAT = 0x0002 << 4;
 
-static const uint16_t THROTTLE_MSM  = 0x0009 << 4;
-static const uint16_t BRAKE_MSM = 0x000A << 4;
+static const uint16_t MID_THROTTLE_MSM  = 0x0009 << 4;
+static const uint16_t MID_BRAKE_MSM = 0x000A << 4;
 
 // Control (0x000B - 0x001B)
-static const uint16_t ACKNOWLEDGE = 0x000B << 4;
-static const uint16_t END_DRIVE = 0x000C << 4;
-static const uint16_t TORQUE_COMMAND = 0x000D << 4;
-static const uint16_t THROTTLE = 0x000E << 4;
-static const uint16_t BRAKE = 0x000F << 4;
-static const uint16_t START_DRIVE = 0x0010 << 4;
-static const uint16_t RESET_FAULTS = 0x0011 << 4;
+static const uint16_t MID_ACKNOWLEDGE = 0x000B << 4;
+static const uint16_t MID_END_DRIVE = 0x000C << 4;
+static const uint16_t MID_TORQUE_COMMAND = 0x000D << 4;
+static const uint16_t MID_THROTTLE = 0x000E << 4;
+static const uint16_t MID_BRAKE = 0x000F << 4;
+static const uint16_t MID_START_DRIVE = 0x0010 << 4;
+static const uint16_t MID_RESET_FAULTS = 0x0011 << 4;
 
 // Feedback (0x002B - 0x004B)
-static const uint16_t PRECHARGE_STATUS = 0x002B << 4;
-static const uint16_t AIR_STATUS = 0x002C << 4;
-static const uint16_t CAR_STATUS = 0x002D << 4; 
-static const uint16_t FAULT_STATUS = 0x002E << 4;
-static const uint16_t INTERLOCK_STATUS = 0x002F << 4;
-static const uint16_t MC_STATUS = 0x0030 << 4;
-static const uint16_t THROTTLE_PRESSED = 0x0031 << 4;
-static const uint16_t BRAKE_PRESSED = 0x0032 << 4;
-static const uint16_t SPEED = 0x0033 << 4;
-static const uint16_t BATTERY_TEMPERATURE = 0x0034 << 4;
-static const uint16_t BATTERY_VOLTAGE = 0x0035 << 4;
-static const uint16_t BATTERY_CURRENT = 0x0036 << 4;
-static const uint16_t TORQUE_STATUS = 0x0037 << 4;
+static const uint16_t MID_PRECHARGE_STATUS = 0x002B << 4;
+static const uint16_t MID_AIR_STATUS = 0x002C << 4;
+static const uint16_t MID_CAR_STATUS = 0x002D << 4; 
+static const uint16_t MID_FAULT_STATUS = 0x002E << 4;
+static const uint16_t MID_INTERLOCK_STATUS = 0x002F << 4;
+static const uint16_t MID_MC_STATUS = 0x0030 << 4;
+static const uint16_t MID_THROTTLE_PRESSED = 0x0031 << 4;
+static const uint16_t MID_BRAKE_PRESSED = 0x0032 << 4;
+static const uint16_t MID_SPEED = 0x0033 << 4;
+static const uint16_t MID_BATTERY_TEMPERATURE = 0x0034 << 4;
+static const uint16_t MID_BATTERY_VOLTAGE = 0x0035 << 4;
+static const uint16_t MID_BATTERY_CURRENT = 0x0036 << 4;
+static const uint16_t MID_TORQUE_STATUS = 0x0037 << 4;
 
 #endif /* IDENTIFIERS_H_ */
