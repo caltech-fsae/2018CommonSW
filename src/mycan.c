@@ -24,6 +24,12 @@ uint16_t create_ID(uint16_t board, uint16_t type)
 	return (((uint16_t)type & 0b0000011111110000) | ((uint16_t)board & 0b00001111));
 }
 
+void create_ACK(can_msg_t *msg, uint16_t board, can_msg_t *ack) {
+    uint16_t identifier = create_ID(board, MID_ACKNOWLEDGE);
+    uint16_t payload = msg->identifier & 0x8F;
+    CAN_short_msg(ack, identifier, payload);
+}
+
 bool CAN_can_transmit() {
 	// Retrieve mailbox empty bits from CAN transmit register
 	int empty_flags = (CAN1->TSR >> 26) & 0x07;
