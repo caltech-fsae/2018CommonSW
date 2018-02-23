@@ -1,3 +1,6 @@
+#ifndef SCHEDULER_H_
+#define SCHEDULER_H_
+
 #include <stdlib.h>
 #include <stdint.h>
 
@@ -18,4 +21,4 @@ int AddTask(Schedule *schedule, void (*function)(void), uint16_t period);
 void RunSchedule(Schedule *schedule);
 void DeleteSchedule(Schedule schedule);
 
-
+#endif //SCHEDULER_H_
