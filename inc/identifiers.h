@@ -93,7 +93,18 @@ static const uint16_t MID_RESET_FAULTS = 0x0011 << 4;
 static const uint16_t MID_PRECHARGE_STATUS = 0x002B << 4;
 static const uint16_t MID_AIR_STATUS = 0x002C << 4;
 static const uint16_t MID_CAR_STATUS = 0x002D << 4; 
+
+// Fault status: sent from shutdown board. Message contents:
+// Bit 6: battery fault (YES/NO)
+// Bit 5: interlock fault (YES/NO)
+// Bit 4: generic flt fault (YES/NO)
+// Bit 3: generic flt_nr fault (YES/NO)
+// Bit 2: IMD fault (YES/NO)
+// Bit 1: AMS fault (YES/NO)
+// Bit 0: BSPD fault (YES/NO)
 static const uint16_t MID_FAULT_STATUS = 0x002E << 4;
+
+// Interlock status: do not use. Check bit 5 of fault status instead.
 static const uint16_t MID_INTERLOCK_STATUS = 0x002F << 4;
 static const uint16_t MID_MC_STATUS = 0x0030 << 4;
 static const uint16_t MID_THROTTLE_PRESSED = 0x0031 << 4;
