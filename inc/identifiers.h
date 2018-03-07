@@ -57,11 +57,16 @@ static const uint16_t BID_CORE = 0x0004;
   * Start_Drive
   * End_Drive
   */
-static const uint16_t CAR_STATE_WAIT         = 0x0000; // waiting for driver start (brake + start button)
-static const uint16_t CAR_STATE_DRIVE        = 0x0001; // normal driving state
-static const uint16_t CAR_STATE_START_BRAKE  = 0x0002; // waiting for driver start (start button)
-static const uint16_t CAR_STATE_RST_FAULT    = 0x0003; // entered resettable fault state
-static const uint16_t CAR_STATE_NO_RST_FAULT = 0x0004; // entered non-resettable fault state
+// Car State (0x0000 - 0x000A)
+static const uint16_t MID_CAR_STATE_WAIT         = 0x0000; // waiting for driver start (brake + start button)
+static const uint16_t MID_CAR_STATE_DRIVE        = 0x0001; // normal driving state
+static const uint16_t MID_CAR_STATE_START_BRAKE  = 0x0002; // waiting for driver start (start button)
+static const uint16_t MID_CAR_STATE_RST_FAULT    = 0x0003; // entered resettable fault state
+static const uint16_t MID_CAR_STATE_NO_RST_FAULT = 0x0004; // entered non-resettable fault state
+
+// Feedback (0x002B - 0x004B)
+static const uint16_t MID_HANDLE_NO_RST_FLT  = 0x002B << 4; // handled some non-resettable fault
+static const uint16_t MID_HANDLE_RST_FLT     = 0x003B << 4; // handled some resettable fault
 
 // Shutdown Board Message Types
 /* FAULT_NR
