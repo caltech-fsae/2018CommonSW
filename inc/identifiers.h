@@ -57,26 +57,7 @@ static const uint16_t BID_CORE = 0x0004;
   * Start_Drive
   * End_Drive
   */
-// Car State)
-static const uint16_t MID_CAR_STATE           = 0x0000 << 4; // car state message type
 
-// Fault status: sent from core board. message contents:
-// Bit 5: generic fault (YES/NO)
-// Bit 4: IMD     fault (YES/NO)
-// Bit 3: BSPD    fault (YES/NO)
-// Bit 2: APPS    fault (YES/NO)
-// Bit 1: BSE     fault (YES/NO)
-// Bit 0: BMS     fault (YES/NO)
-static const uint16_t MID_HANDLE_NO_RST_FLT   = 0x0001 << 4; // handled some non-resettable fault
-
-// Feedback
-// Bit 1: generic fault (YES/NO)
-// Bit 0: BPPC    fault (YES/NO)
-static const uint16_t MID_HANDLE_RST_FLT      = 0x0002 << 4; // handled some resettable fault
-
-static const uint16_t MID_ACKNOWLEDGE         = 0x0003 << 4; // acknowledges that a msg was recieved
-static const uint16_t MID_HEARTBEAT           = 0x0004 << 4; // indicates that the core board is alive
-static const uint16_t MID_TORQUE_COMMAND      = 0X0005 << 4; // send torque value for MC to keep in mind
 
 // Shutdown Board Message Types
 /* FAULT_NR
@@ -87,15 +68,28 @@ static const uint16_t MID_TORQUE_COMMAND      = 0X0005 << 4; // send torque valu
  */
 
 
-// Faults (0x0000 - 0x000A)
+// FAULTS (0x0000 - 0x000A) ////////////////////////////////////////////////////////////////////
 static const uint16_t MID_FAULT_NR            = 0x0000 << 4;
 static const uint16_t MID_FAULT               = 0x0001 << 4;
 static const uint16_t MID_HEARTBEAT           = 0x0002 << 4;
+static const uint16_t MID_THROTTLE_MSM        = 0x0008 << 4;
+static const uint16_t MID_BRAKE_MSM           = 0x0009 << 4;
+// Cause of fault: sent from core board, provides reason car entered fault state.
+//                 (Shutdown also will broadcast, but in case the fault is because
+//                 shutdown went offline and cannot send that message)
+///// Resettable Faults (bits 8 - 15) /////
+// Bit 8: BPPC      fault (YES/NO)
+///// Nonresettable Fault (bits 0 - 7) ////
+// Bit 5: HEARTBEAT fault (YES/NO)
+// Bit 4: IMD       fault (YES/NO)
+// Bit 3: BSPD      fault (YES/NO)
+// Bit 2: APPS      fault (YES/NO)
+// Bit 1: BSE       fault (YES/NO)
+// Bit 0: BMS       fault (YES/NO)
+// Generic NR fault if no bits set, Generic R fault if all bits set
+static const uint16_t MID_FAULT_CAUSE         = 0x000A << 4;
 
-static const uint16_t MID_THROTTLE_MSM        = 0x0009 << 4;
-static const uint16_t MID_BRAKE_MSM           = 0x000A << 4;
-
-// Control (0x000B - 0x001B)
+// CONTROL (0x000B - 0x001B) ///////////////////////////////////////////////////////////////////
 static const uint16_t MID_ACKNOWLEDGE         = 0x000B << 4;
 static const uint16_t MID_END_DRIVE           = 0x000C << 4;
 static const uint16_t MID_TORQUE_COMMAND      = 0x000D << 4;
@@ -104,10 +98,18 @@ static const uint16_t MID_BRAKE               = 0x000F << 4;
 static const uint16_t MID_START_DRIVE         = 0x0010 << 4;
 static const uint16_t MID_RESET_FAULTS        = 0x0011 << 4;
 
-// Feedback (0x002B - 0x004B)
+// FEEDBACK (0x002B - 0x004B) //////////////////////////////////////////////////////////////////
 static const uint16_t MID_PRECHARGE_STATUS    = 0x002B << 4;
 static const uint16_t MID_AIR_STATUS          = 0x002C << 4;
-static const uint16_t MID_CAR_STATUS          = 0x002D << 4;
+// Car state: sent from core board. Can only be in one state, bit set to 1 if in that state.
+//  Message contents:
+//   Bit 5: NO_RST_FAULT   - non-resettable fault state
+//   Bit 4: RST_FAULT      - resettable fault state
+//   Bit 3: DRIVE          - normal driving state
+//   Bit 2: START_BRAKE    - waiting for driver start sequence start button
+//   Bit 1: WAIT_DRIVER    - waiting for driver start sequence brake
+//   Bit 0: WAIT_HEARTBEAT - waiting for all other boards to send a heartbeat
+static const uint16_t MID_CAR_STATE           = 0x002D << 4;
 
 // Fault status: sent from shutdown board. Message contents:
 // Bit 6: battery fault (YES/NO)
