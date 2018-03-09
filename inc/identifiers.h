@@ -44,6 +44,7 @@ static const uint16_t BID_CORE = 0x0004;
  * Brake_Pressed
  * Throttle_MSM (mismatch)
  * Brake_MSM (mismatch)
+ * BPPC
  */
 
  // Core Board Message Types
@@ -88,15 +89,16 @@ static const uint16_t MID_BRAKE_MSM           = 0x0009 << 4;
 // Bit 0: BMS       fault (YES/NO)
 // Generic NR fault if no bits set, Generic R fault if all bits set
 static const uint16_t MID_FAULT_CAUSE         = 0x000A << 4;
+static const uint16_t MID_BPPC_BSPD			  = 0x000B << 4;
 
 // CONTROL (0x000B - 0x001B) ///////////////////////////////////////////////////////////////////
-static const uint16_t MID_ACKNOWLEDGE         = 0x000B << 4;
-static const uint16_t MID_END_DRIVE           = 0x000C << 4;
-static const uint16_t MID_TORQUE_COMMAND      = 0x000D << 4;
-static const uint16_t MID_THROTTLE            = 0x000E << 4;
-static const uint16_t MID_BRAKE               = 0x000F << 4;
-static const uint16_t MID_START_DRIVE         = 0x0010 << 4;
-static const uint16_t MID_RESET_FAULTS        = 0x0011 << 4;
+static const uint16_t MID_ACKNOWLEDGE         = 0x000C << 4;
+static const uint16_t MID_END_DRIVE           = 0x000D << 4;
+static const uint16_t MID_TORQUE_COMMAND      = 0x000E << 4;
+static const uint16_t MID_THROTTLE            = 0x000F << 4;
+static const uint16_t MID_BRAKE               = 0x0010 << 4;
+static const uint16_t MID_START_DRIVE         = 0x0011 << 4;
+static const uint16_t MID_RESET_FAULTS        = 0x0012 << 4;
 
 // FEEDBACK (0x002B - 0x004B) //////////////////////////////////////////////////////////////////
 static const uint16_t MID_PRECHARGE_STATUS    = 0x002B << 4;
