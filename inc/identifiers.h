@@ -99,6 +99,7 @@ static const uint16_t MID_THROTTLE            = 0x000F << 4;
 static const uint16_t MID_BRAKE               = 0x0010 << 4;
 static const uint16_t MID_START_DRIVE         = 0x0011 << 4;
 static const uint16_t MID_RESET_FAULTS        = 0x0012 << 4;
+static const uint16_t MID_REDUCE_PWR          = 0x0013 << 4;
 
 // FEEDBACK (0x002B - 0x004B) //////////////////////////////////////////////////////////////////
 static const uint16_t MID_PRECHARGE_STATUS    = 0x002B << 4;
