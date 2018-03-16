@@ -52,31 +52,17 @@ static const uint16_t BID_CORE = 0x0004;
   * HEARTBEAT
   * Torque_Command
   * Car_state
-  * // Car state: sent from core board. Can only be in one state, bit set to 1 if in that state.
-	//  Message contents:
-	//   Bit 5: NO_RST_FAULT   - non-resettable fault state
-	//   Bit 4: RST_FAULT      - resettable fault state
-	//   Bit 3: DRIVE          - normal driving state
-	//   Bit 2: START_BRAKE    - waiting for driver start sequence start button
-	//   Bit 1: WAIT_DRIVER    - waiting for driver start sequence brake
-	//   Bit 0: WAIT_HEARTBEAT - waiting for all other boards to send a heartbeat
+  *    Car state: sent from core board. Can only be in one state.
+	   Message contents:
+	     0 = WAIT_HEARTBEATS, // waiting for all boards to send a heartbeat
+         1 = WAIT_DRIVER,     // waiting for driver start (brake + start button)
+	     2 = DRIVE,          // normal driving state
+         3 = START_BRAKE,    // waiting for driver start (start button)
+         4 = RST_FAULT,      // entered resettable fault state
+         5 = NO_RST_FAULT    // entered non-resettable fault state
   * Reset_Faults
   * Start_Drive
   * End_Drive
-  * FAULT_CAUSE
-  * // Cause of fault: sent from core board, provides reason car entered fault state.
-	//                 (Shutdown also will broadcast, but in case the fault is because
-	//                 shutdown went offline and cannot send that message)
-	///// Resettable Faults (bits 8 - 15) /////
-	// Bit 8: BPPC      fault (YES/NO)
-	///// Nonresettable Fault (bits 0 - 7) ////
-	// Bit 5: HEARTBEAT fault (YES/NO)
-	// Bit 4: IMD       fault (YES/NO)
-	// Bit 3: BSPD      fault (YES/NO)
-	// Bit 2: APPS      fault (YES/NO)
-	// Bit 1: BSE       fault (YES/NO)
-	// Bit 0: BMS       fault (YES/NO)
-	// Generic NR fault if no bits set, Generic R fault if all bits set
   */
 
 
