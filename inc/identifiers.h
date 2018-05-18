@@ -88,8 +88,7 @@ static const uint16_t MID_FAULT_NR            = 0x0000 << 4;
 static const uint16_t MID_FAULT               = 0x0001 << 4;
 static const uint16_t MID_BPPC_BSPD			  = 0x0002 << 4;
 static const uint16_t MID_HEARTBEAT           = 0x0003 << 4;
-static const uint16_t MID_THROTTLE_STATUS     = 0x0008 << 4;
-static const uint16_t MID_BRAKE_STATUS        = 0x0009 << 4;
+static const uint16_t MID_PEDAL_STATUS     	  = 0x0008 << 4;
 static const uint16_t MID_FAULT_CAUSE         = 0x000A << 4;
 
 // CONTROL (0x000B - 0x001B) ///////////////////////////////////////////////////////////////////
