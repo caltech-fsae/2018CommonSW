@@ -121,4 +121,7 @@ static const uint16_t MID_BATTERY_VOLTAGE     = 0x0035 << 4;
 static const uint16_t MID_BATTERY_CURRENT     = 0x0036 << 4;
 static const uint16_t MID_TORQUE_STATUS       = 0x0037 << 4;
 
+
+//Identifier for is charging message
+static const uint16_t IS_CHARGING             = 0x0038 << 4;
 #endif /* IDENTIFIERS_H_ */
