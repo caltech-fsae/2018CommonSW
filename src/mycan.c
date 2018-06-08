@@ -116,11 +116,11 @@ bool CAN_dequeue_msg(can_msg_t *msg) {
 		int fifo1 = (CAN1->RF1R & 0x03);
 		if (fifo0 > 0) {
 			// Release the mail
-			CAN1->RF0R |= 0x20;
 			msg->identifier = (CAN1->sFIFOMailBox[0].RIR >> 21) & 0x7FF;
 			msg->data_length = (CAN1->sFIFOMailBox[0].RDTR) & 0x0F;
 			*(uint32_t*)(msg->data) = CAN1->sFIFOMailBox[0].RDHR;
 			*(uint32_t*)(msg->data + 4) = CAN1->sFIFOMailBox[0].RDLR;
+			CAN1->RF0R |= 0x20;
 		} else {
 			// Release the mail
 			CAN1->RF1R |= 0x20;
