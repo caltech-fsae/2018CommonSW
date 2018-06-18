@@ -84,13 +84,17 @@ static const uint16_t BID_CORE = 0x0004;
 
 
 // FAULTS (0x0000 - 0x000A) ////////////////////////////////////////////////////////////////////
-static const uint16_t MID_FAULT_NR            = 0x0000 << 4;
-static const uint16_t MID_FAULT               = 0x0001 << 4;
-static const uint16_t MID_BPPC_BSPD			  = 0x0002 << 4;
-static const uint16_t MID_HEARTBEAT           = 0x0003 << 4;
-static const uint16_t MID_PEDAL_STATUS     	  = 0x0008 << 4;
-static const uint16_t MID_FAULT_CAUSE         = 0x000A << 4;
-static const uint16_t MID_ATTEMPT_RESET       = 0x000B << 4;
+static const uint16_t MID_FAULT_NR          		  	= 0x0000 << 4;
+static const uint16_t MID_FAULT               			= 0x0001 << 4;
+static const uint16_t MID_BPPC_BSPD			  			= 0x0002 << 4;
+static const uint16_t MID_HEARTBEAT           			= 0x0003 << 4;
+static const uint16_t MID_REQUEST_NR_RESET_CONSENT	  	= 0x0004 << 4;
+static const uint16_t MID_PROVIDE_NR_RESET_CONSENT	  	= 0x0005 << 4;
+static const uint16_t MID_FLT_CLEAR_ACK					= 0x0006 << 4;
+static const uint16_t MID_FLT_CLEAR						= 0x0007 << 4;
+static const uint16_t MID_PEDAL_STATUS     	  			= 0x0008 << 4;
+static const uint16_t MID_FAULT_CAUSE         			= 0x000A << 4;
+static const uint16_t MID_ATTEMPT_RESET       			= 0x000B << 4;
 
 // CONTROL (0x000B - 0x001B) ///////////////////////////////////////////////////////////////////
 static const uint16_t MID_ACKNOWLEDGE         = 0x000C << 4;
